@@ -1,0 +1,15 @@
+<select [id]="id()" [formControl]="control()" (click)="isOpen.set(!isOpen())">
+    @if (placeHolder()) {
+    <option value="" disabled selected>{{ placeHolder() }}</option>
+    }
+    @for(option of options(); track $index) {
+    <option [value]="option.value">{{ option.name }}</option>
+    }
+</select>
+<div class="arrow">
+    @if (isOpen()) {
+    <mat-icon>arrow_drop_down</mat-icon>
+    } @else {
+    <mat-icon>arrow_drop_up</mat-icon>
+    }
+</div>

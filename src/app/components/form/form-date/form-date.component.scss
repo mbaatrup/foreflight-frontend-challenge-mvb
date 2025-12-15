@@ -1,0 +1,22 @@
+@use '../../../../mixins.scss' as mixins;
+
+:host {
+    input[type=date] {
+        all: unset;
+        width: 100%;
+        border-radius: var(--border-radius);
+        padding: var(--spacing-05);
+        height: 58px;
+        box-sizing: border-box;
+        background-color: var(--color-tertiary);
+        border: var(--border-primary);
+    }
+
+    input::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+    }
+
+    &.alert input {
+        border-color: var(--border-color-alert);
+    }
+}

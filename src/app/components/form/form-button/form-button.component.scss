@@ -1,0 +1,33 @@
+@use '../../../../mixins.scss' as mixins;
+
+:host {
+    display: flex;
+    box-sizing: border-box;
+    height: 40px;
+    padding: 0 var(--spacing-05);
+    border-radius: var(--border-radius);
+    font-weight: bold;
+    box-shadow: var(--elevation-01);
+
+    button {
+        @include mixins.reset-button;
+
+        display: flex;
+        align-items: center;
+        column-gap: var(--spacing-03);
+    }
+
+    &:active {
+        box-shadow: none;
+    }
+
+    &.secondary {
+        background-color: white;
+        color: var(--color-primary);
+    }
+
+    &.primary {
+        background-color: var(--color-primary);
+        color: white;
+    }
+}

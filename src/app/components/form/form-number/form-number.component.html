@@ -1,0 +1,17 @@
+@if (bigStep() !== undefined) {
+<button type="button" class="button" (click)="changeValueByAmount(bigStep(), 'left')">
+    <mat-icon>keyboard_double_arrow_left</mat-icon>
+</button>
+}
+<button type="button" class="button" (click)="changeValueByAmount(step(), 'left')">
+    <mat-icon>chevron_left</mat-icon>
+</button>
+<input type="number" [id]="id()" [formControl]="control()">
+<button type="button" class="button" (click)="changeValueByAmount(step(), 'right')">
+    <mat-icon>chevron_right</mat-icon>
+</button>
+@if (bigStep() !== undefined) {
+<button type="button" class="button" (click)="changeValueByAmount(bigStep(), 'right')">
+    <mat-icon>keyboard_double_arrow_right</mat-icon>
+</button>
+}

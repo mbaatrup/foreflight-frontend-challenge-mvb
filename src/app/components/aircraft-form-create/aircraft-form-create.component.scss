@@ -1,0 +1,113 @@
+@use '../../../mixins.scss' as mixins;
+
+:host {
+    form {
+        display: grid;
+        margin: 0 var(--spacing-05) var(--spacing-05) var(--spacing-05);
+        padding: var(--spacing-06);
+        row-gap: var(--spacing-04);
+        background-color: var(--color-secondary);
+        border-radius: var(--border-radius);
+        box-shadow: var(--elevation-01);
+        column-gap: var(--spacing-05);
+        grid-template-areas:
+            "number"
+            "type"
+            "maintenance"
+            "serial"
+            "seats"
+            "interior"
+            "comments"
+            "pets"
+            "buttons";
+        grid-template-columns: 1fr;
+
+        >* {
+            display: flex;
+            column-gap: var(--spacing-06);
+        }
+    }
+
+    label {
+        margin: var(--spacing-04) 0;
+        text-wrap-mode: nowrap;
+    }
+
+    .form-element {
+        display: flex;
+        width: 100%;
+
+        &.col {
+            flex-direction: column;
+        }
+
+        &.row {
+            column-gap: var(--spacing-05);
+            align-items: center;
+            justify-content: space-between;
+            margin: var(--spacing-04) 0;
+        }
+    }
+
+    .buttons {
+        grid-area: buttons;
+
+        display: flex;
+        width: 100%;
+        margin-top: var(--spacing-05);
+        padding-top: var(--spacing-06);
+        justify-content: space-between;
+        border-top: var(--border-primary);
+
+        mat-icon {
+            font-weight: bold;
+        }
+    }
+
+    .number {
+        grid-area: number;
+    }
+
+    .type {
+        grid-area: type;
+    }
+
+    .maintenance {
+        grid-area: maintenance;
+    }
+
+    .serial-number {
+        grid-area: serial;
+    }
+
+    .seats {
+        grid-area: seats;
+    }
+
+    .interior {
+        grid-area: interior;
+    }
+
+    .comments {
+        grid-area: comments;
+    }
+
+    .pets {
+        grid-area: pets;
+
+        width: fit-content;
+    }
+
+    @media screen and (min-width: 800px) {
+        form {
+            grid-template-areas:
+                "number type"
+                "maintenance serial"
+                "seats interior"
+                "comments comments"
+                "pets ."
+                "buttons buttons";
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}

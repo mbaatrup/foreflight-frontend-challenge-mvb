@@ -1,0 +1,77 @@
+<div class="vertical-line" [ngClass]="{ 'open': isOpen() }"></div>
+<div class="arrow">
+	@if (isOpen()) {
+	<mat-icon>arrow_drop_down</mat-icon>
+	} @else {
+	<mat-icon>arrow_drop_up</mat-icon>
+	}
+</div>
+<div class="number">
+	<mat-icon>airlines</mat-icon>
+	<div class="text">
+		<strong>Number</strong>
+		<span>{{ value().tailNumber }}</span>
+	</div>
+</div>
+<div class="type">
+	<mat-icon>flight</mat-icon>
+	<div class="text">
+		<strong>Type</strong>
+		<p>{{ value().aircraftType }}</p>
+	</div>
+</div>
+<div class="seats">
+	<mat-icon>airline_seat_recline_extra</mat-icon>
+	<div class="text">
+		<strong>Seats</strong>
+		<span>{{ value().numberOfSeats }}</span>
+	</div>
+</div>
+<button class="button delete" (click)="onRemove($event)">
+	<mat-icon class="material-symbols-outlined">delete</mat-icon>
+</button>
+<div class="maintenance">
+	<mat-icon class="material-symbols-outlined">handyman</mat-icon>
+	<div class="text">
+		<strong>Next Maintenance</strong>
+		<span>{{ value().nextMaintenanceDate.split('T')[0] }}</span>
+	</div>
+</div>
+<div class="interior">
+	<mat-icon>login</mat-icon>
+	<div class="text">
+		<strong>Interior Condition</strong>
+		<p>{{ value().interiorCondition }}</p>
+	</div>
+</div>
+<div class="pets">
+	<mat-icon>pets</mat-icon>
+	<div class="text">
+		<strong>Pet Friendly</strong>
+		<span>{{ value().isSuitedForPets ? 'Yes' : 'No' }}</span>
+	</div>
+</div>
+<button class="button favorite" (click)="onFavorite($event)">
+	@if (favorite() || isFavorite()) {
+	<mat-icon>star</mat-icon>
+	} @else {
+	<mat-icon class="material-symbols-outlined">star</mat-icon>
+	}
+</button>
+<div class="serial-number">
+	<mat-icon class="material-symbols-outlined">label_important</mat-icon>
+	<div class="text">
+		<strong>Serial Number</strong>
+		<span>{{ value().serialNumber ?? '- -' }}</span>
+	</div>
+</div>
+<div class="comments">
+	<mat-icon class="material-symbols-outlined">comment</mat-icon>
+	<div class="text">
+		<strong>Comments</strong>
+		<p>{{ value().comments ?? '- -'}}</p>
+	</div>
+</div>
+<button class="button edit" (click)="onEdit($event)">
+	<mat-icon class="material-symbols-outlined">edit</mat-icon>
+</button>

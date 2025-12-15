@@ -1,0 +1,28 @@
+@use '../../../../mixins.scss' as mixins;
+
+:host {
+    position: relative;
+    box-sizing: border-box;
+
+    mat-icon {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        pointer-events: none;
+        opacity: 0;
+
+        &.checked {
+            opacity: 100%;
+        }
+    }
+
+    input {
+        all: unset;
+        display: flex;
+        height: 32px;
+        width: 32px;
+        background-color: var(--color-tertiary);
+        border-radius: var(--border-radius);
+        border: var(--border-primary);
+    }
+}

@@ -1,0 +1,49 @@
+@use "../../../mixins.scss" as mixins;
+
+:host {
+	@keyframes rotation {
+		from {
+			transform: rotate(0deg);
+		}
+
+		to {
+			transform: rotate(359deg);
+		}
+	}
+
+	ul {
+		@include mixins.reset-list;
+	}
+
+	h2 {
+		margin: var(--spacing-04) 0;
+	}
+
+	mat-icon {
+		font-size: 48px;
+		height: 48px;
+		width: 48px;
+		animation: rotation 2s infinite linear;
+		margin: 24px auto;
+	}
+
+	.list {
+		display: flex;
+		flex-direction: column;
+		row-gap: var(--spacing-04);
+		margin: 0 var(--spacing-05) var(--spacing-05) var(--spacing-05);
+	}
+
+	.favorites-bottom-line {
+		display: flex;
+		width: 100%;
+		border-bottom: var(--border-primary);
+		margin-bottom: calc(16px - 8px);
+		padding-bottom: var(--spacing-05);
+	}
+
+	.container {
+		display: flex;
+		flex-direction: column;
+	}
+}

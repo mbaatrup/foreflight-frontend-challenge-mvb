@@ -1,0 +1,40 @@
+@use '../../../mixins.scss' as mixins;
+
+:host {
+    button {
+        @include mixins.reset-button;
+    }
+
+    h1 {
+        user-select: none;
+    }
+
+    mat-icon {
+        font-size: 32px;
+        height: 32px;
+        width: 32px;
+        border-radius: var(--border-radius);
+        border: var(--border-width-secondary) var(--border-style) var(--border-color-tertiary);
+        padding: var(--spacing-03);
+
+        &:active {
+            background-color: var(--border-color-tertiary);
+        }
+    }
+
+    .container {
+        display: flex;
+        padding: 0 var(--spacing-05);
+        align-items: center;
+        background-color: var(--color-primary);
+        margin-bottom: var(--spacing-05);
+        justify-content: center;
+        border-bottom: var(--border-primary);
+    }
+
+    .text {
+        display: flex;
+        justify-content: center;
+        flex-grow: 1;
+    }
+}

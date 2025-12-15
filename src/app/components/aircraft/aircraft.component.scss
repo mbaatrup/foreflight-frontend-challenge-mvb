@@ -1,0 +1,250 @@
+@use "../../../mixins.scss" as mixins;
+
+:host {
+    display: grid;
+    gap: 0 var(--spacing-04);
+    align-items: center;
+    background-color: var(--color-secondary);
+    padding: var(--spacing-05);
+    border: var(--border-width-primary) var(--border-style) var(--color-secondary);
+    border-radius: var(--border-radius);
+    box-shadow: var(--elevation-01);
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    grid-template-areas:
+        "arrow number delete"
+        ". type favorite"
+        ". seats edit "
+        ". maintenance ."
+        ". interior ."
+        ". pets ."
+        ". serial ."
+        ". comments .";
+    grid-template-columns: 32px auto 77px;
+
+    >* {
+        display: flex;
+        align-items: center;
+        column-gap: var(--spacing-03);
+        overflow: hidden;
+    }
+
+    &.open {
+        row-gap: var(--spacing-04);
+    }
+
+    ul {
+        @include mixins.reset-list;
+    }
+
+    button {
+        @include mixins.reset-button;
+    }
+
+    span,
+    strong,
+    p {
+        user-select: none;
+    }
+
+    mat-icon {
+        font-size: 32px;
+        height: 32px;
+        width: 32px;
+    }
+
+    &:active {
+        border: var(--border-primary);
+    }
+
+    &.deleting {
+        background-color: var(--color-tertiary);
+        color: darkgray;
+    }
+
+    .vertical-line {
+        position: absolute;
+        right: 92px;
+        top: 16px;
+        height: 44px;
+        width: 1px;
+        border-right: var(--border-primary);
+
+        &.open {
+            height: 148px;
+        }
+    }
+
+    .button {
+        display: flex;
+        margin-left: auto;
+
+        mat-icon {
+            border-radius: var(--spacing-04);
+            border: var(--border-width-secondary) var(--border-style) var(--border-color-secondary);
+            padding: var(--spacing-03);
+
+            &:active {
+                background-color: var(--border-color-secondary);
+            }
+        }
+    }
+
+    .text {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+
+        p {
+            margin: 0;
+        }
+    }
+
+    .arrow {
+        grid-area: arrow;
+    }
+
+    .number {
+        grid-area: number;
+    }
+
+    .type {
+        grid-area: type;
+    }
+
+    .seats {
+        grid-area: seats;
+    }
+
+    .delete {
+        grid-area: delete;
+    }
+
+    .maintenance {
+        grid-area: maintenance;
+    }
+
+    .interior {
+        grid-area: interior;
+    }
+
+    .pets {
+        grid-area: pets;
+    }
+
+    .favorite {
+        grid-area: favorite;
+    }
+
+    .serial-number {
+        grid-area: serial;
+    }
+
+    .comments {
+        grid-area: comments;
+    }
+
+    .edit {
+        grid-area: edit;
+    }
+
+    @media screen and (max-width: 650px) {
+        &:not(.open) {
+
+            .type,
+            .seats,
+            .maintenance,
+            .favorite,
+            .interior,
+            .pets,
+            .edit,
+            .serial-number,
+            .comments {
+                display: none;
+            }
+        }
+
+        &.open .vertical-line {
+            height: 380px;
+        }
+    }
+
+    @media screen and (min-width: 650px) and (max-width: 800px) {
+        grid-template-areas:
+            "arrow number type delete"
+            ". seats maintenance favorite"
+            ". interior pets edit "
+            ". serial comments .";
+        grid-template-columns: 32px 200px auto 77px;
+
+        &:not(.open) {
+
+            .seats,
+            .maintenance,
+            .favorite,
+            .interior,
+            .pets,
+            .edit,
+            .serial-number,
+            .comments {
+                display: none;
+            }
+        }
+
+        &.open .vertical-line {
+            height: 194px;
+        }
+    }
+
+    @media screen and (min-width:800px) and (max-width: 1000px) {
+        grid-template-areas:
+            "arrow number type seats delete"
+            ". maintenance interior pets favorite"
+            ". serial comments comments edit";
+        grid-template-columns: 32px 200px 240px auto 77px;
+
+        &:not(.open) {
+
+            .maintenance,
+            .interior,
+            .pets,
+            .favorite,
+            .serial-number,
+            .comments,
+            .edit {
+                display: none;
+            }
+        }
+
+        &.open .vertical-line {
+            height: 148px;
+        }
+    }
+
+    @media screen and (min-width: 1000px) {
+        grid-template-areas:
+            "arrow number type seats pets delete"
+            ". maintenance interior serial . favorite"
+            ". comments comments comments comments edit";
+        grid-template-columns: 32px 200px 240px 200px auto 77px;
+
+        &:not(.open) {
+
+            .maintenance,
+            .favorite,
+            .interior,
+            .edit,
+            .serial-number,
+            .comments {
+                display: none;
+            }
+        }
+
+        &.open .vertical-line {
+            height: 148px;
+        }
+    }
+}

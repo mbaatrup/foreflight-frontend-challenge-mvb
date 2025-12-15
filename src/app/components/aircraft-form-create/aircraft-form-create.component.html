@@ -1,0 +1,42 @@
+<form id="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-element col number">
+        <label for="tailNumber">Tail Number *</label>
+        <app-form-input id="tailNumber" [control]="tailNumber"></app-form-input>
+    </div>
+    <div class="form-element col type">
+        <label for="aircraftType">Aircraft Type *</label>
+        <app-form-select id="aircraftType" [control]="type" [options]="aircraftTypes()"
+            [placeHolder]="'Choose type...'"></app-form-select>
+    </div>
+    <div class="form-element col maintenance">
+        <label for="nextMaintenance">Next Maintenance *</label>
+        <app-form-date id="nextMaintenance" [control]="nextMaintenance"></app-form-date>
+    </div>
+    <div class="form-element col serial-number">
+        <label for="serialNumber">Serial Number</label>
+        <app-form-input id="serialNumber" [control]="serialNumber"></app-form-input>
+    </div>
+    <div class="form-element col seats">
+        <label for="seatsNumber">Number of Seats</label>
+        <app-form-number id="seatsNumber" [control]="seats" [step]="1" [min]="0" [max]="maxSeats"></app-form-number>
+    </div>
+    <div class="form-element col interior">
+        <label for="interiorCondition">Interior Condition (0 - {{ 100 }})</label>
+        <app-form-number id="interiorCondition" [control]="interiorCondition" [step]="1" [bigStep]="10" [min]="0"
+            [max]="maxInteriorCondition"></app-form-number>
+    </div>
+    <div class="form-element col comments">
+        <label for="comments">Comments</label>
+        <app-form-textarea id="comments" [control]="comments"></app-form-textarea>
+    </div>
+    <div class="form-element row pets">
+        <label for="petFriendly">Pet Friendly</label>
+        <app-form-checkbox id="petFriendly" [control]="petFriendly"></app-form-checkbox>
+    </div>
+    <div class="buttons">
+        <app-form-button text="Cancel" type="button" color="secondary"
+            (clicked)="onCancel()"><mat-icon>close_small</mat-icon></app-form-button>
+        <app-form-button text="Submit" type="submit" color="primary"
+            (clicked)="onSubmit()"><mat-icon>check_small</mat-icon></app-form-button>
+    </div>
+</form>
